@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirector</title>
+    <script>
+        const path = window.location.pathname;
+        const redirects = {
+            '/word': 'https://niuitmo-my.sharepoint.com/:w:/g/personal/339116_niuitmo_ru/EXruqUjBY_BPmBYixEEpBn0BTlMghwO0RJ_O-hZL_0ePJA?e=dga1d2',  // Замените на свою ссылку Word
+            '/pptx': 'https://niuitmo-my.sharepoint.com/:p:/g/personal/339116_niuitmo_ru/EcPImFqS6ONOod3UsOETbY4B2X1xZi7-tlkVTJf5IQszIA?rtime=qmsHP8Gt3Ug' // Замените на свою ссылку PPTX
+        };
+
+        if (redirects[path]) {
+            window.location.href = redirects[path];
+        } else {
+            document.body.innerHTML = '<h1>Редиректы:</h1><ul>'
+                + Object.entries(redirects).map(([p, u]) => 
+                    `<li><a href="${p}">${p} → ${u}</a></li>`
+                  ).join('')
+                + '</ul>';
+        }
+    </script>
+</head>
+<body>
+    <noscript>
+        <h1>Требуется JavaScript!</h1>
+        <p>Для перенаправления включите JavaScript</p>
+    </noscript>
+</body>
+</html>
